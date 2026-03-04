@@ -1,0 +1,151 @@
+    <!-- Ex 1 -->
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-num">1</div>
+        <div class="ex-title">
+          <span>exploração inicial</span>
+          Carregando e conhecendo o dataset
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-body">
+          <p>Carregue o arquivo <code>vendas_ecommerce.json</code> em um DataFrame e responda:</p>
+          <ul class="task-list">
+            <li><div class="task-check"></div>Carregue o JSON em um DataFrame chamado <code>df</code></li>
+            <li><div class="task-check"></div>Exiba as primeiras 5 linhas do DataFrame</li>
+            <li><div class="task-check"></div>Mostre os tipos de dados de cada coluna</li>
+            <li><div class="task-check"></div>Obtenha um resumo estatístico de todas as colunas numéricas</li>
+            <li><div class="task-check"></div>Verifique se há valores nulos em alguma coluna</li>
+          </ul>
+          <div class="question-block">
+            <p>Após explorar: qual coluna tem o maior valor máximo? E qual a média de <code>avaliacao</code>?</p>
+            <input class="answer-line" type="text" placeholder="escreva sua resposta aqui...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 2 -->
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-num">2</div>
+        <div class="ex-title">
+          <span>nova coluna calculada</span>
+          Calculando o valor final de cada pedido
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-body">
+          <p>Crie uma nova coluna chamada <code>valor_final</code> com o valor total pago pelo cliente, descontando o percentual de desconto e multiplicando pela quantidade.</p>
+          <ul class="task-list">
+            <li><div class="task-check"></div>Use as colunas <code>quantidade</code>, <code>preco_unitario</code> e <code>desconto_pct</code></li>
+            <li><div class="task-check"></div>Arredonde o resultado para 2 casas decimais</li>
+            <li><div class="task-check"></div>Mostre as colunas <code>produto</code>, <code>quantidade</code>, <code>preco_unitario</code>, <code>desconto_pct</code> e <code>valor_final</code></li>
+          </ul>
+          <div class="note">
+            💡 <strong>Dica:</strong> você pode operar diretamente entre colunas do DataFrame, como se fossem variáveis numéricas.
+          </div>
+          <div class="question-block">
+            <p>Qual o valor_final do pedido de maior desconto percentual?</p>
+            <input class="answer-line" type="text" placeholder="escreva sua resposta aqui...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 3 -->
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-num">3</div>
+        <div class="ex-title">
+          <span>filtragem de dados</span>
+          Selecionando registros específicos
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-body">
+          <p>Use filtros booleanos para responder às perguntas abaixo. Cada item deve ser resolvido em uma ou duas linhas de código:</p>
+          <ul class="task-list">
+            <li><div class="task-check"></div><strong>3a.</strong> Liste todos os pedidos que foram <em>devolvidos</em>. Mostre: cliente, produto e valor_final.</li>
+            <li><div class="task-check"></div><strong>3b.</strong> Filtre os pedidos da categoria <em>"Eletrônicos"</em> com avaliação igual a 5.</li>
+            <li><div class="task-check"></div><strong>3c.</strong> Quais pedidos tiveram desconto acima de 15% <em>e</em> valor_final maior que R$ 300?</li>
+            <li><div class="task-check"></div><strong>3d.</strong> Encontre o pedido de <em>maior valor_final</em> do dataset.</li>
+            <li><div class="task-check"></div><strong>3e.</strong> Quantos pedidos foram feitos por clientes do estado de <em>São Paulo (SP)</em>?</li>
+          </ul>
+          <div class="question-block">
+            <p>Quantos pedidos foram devolvidos no total? Qual a porcentagem em relação ao total?</p>
+            <input class="answer-line" type="text" placeholder="escreva sua resposta aqui...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 4 -->
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-num">4</div>
+        <div class="ex-title">
+          <span>agregações</span>
+          Agrupando e resumindo os dados
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-body">
+          <p>Agrupe os dados para extrair insights de negócio. Para cada item, pense em qual função de agregação faz mais sentido:</p>
+          <ul class="task-list">
+            <li><div class="task-check"></div><strong>4a.</strong> Qual o <em>total de receita</em> (soma de <code>valor_final</code>) por <strong>categoria</strong>? Ordene do maior para o menor.</li>
+            <li><div class="task-check"></div><strong>4b.</strong> Qual a <em>avaliação média</em> por <strong>método de pagamento</strong>?</li>
+            <li><div class="task-check"></div><strong>4c.</strong> Qual o <em>número de pedidos</em> por <strong>estado</strong>?</li>
+            <li><div class="task-check"></div><strong>4d.</strong> Qual a <em>média de idade</em> dos clientes por <strong>categoria</strong>?</li>
+            <li><div class="task-check"></div><strong>4e.</strong> Qual categoria tem o <em>maior ticket médio</em> (média de valor_final)?</li>
+          </ul>
+          <div class="note">
+            💡 <strong>Dica:</strong> pesquise sobre <code>groupby()</code> na documentação do pandas. Você pode encadear métodos como <code>.sum()</code>, <code>.mean()</code>, <code>.count()</code> e <code>.sort_values()</code>.
+          </div>
+          <div class="question-block">
+            <p>Qual categoria gerou mais receita? Qual gerou menos? Existe alguma surpresa nos resultados?</p>
+            <input class="answer-line" type="text" placeholder="escreva sua resposta aqui...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ex 5 -->
+    <div class="exercise">
+      <div class="ex-head">
+        <div class="ex-num">5</div>
+        <div class="ex-title">
+          <span>análise temporal</span>
+          Explorando a evolução das vendas por mês
+        </div>
+      </div>
+      <div class="ex-card">
+        <div class="ex-body">
+          <p>A coluna <code>data</code> está como texto. Você precisará convertê-la para o tipo correto e extrair informações temporais:</p>
+          <ul class="task-list">
+            <li><div class="task-check"></div>Converta a coluna <code>data</code> para o tipo <em>datetime</em></li>
+            <li><div class="task-check"></div>Crie uma coluna <code>mes</code> extraindo o número do mês</li>
+            <li><div class="task-check"></div>Calcule o <em>total de vendas</em> (valor_final) por mês</li>
+            <li><div class="task-check"></div>Calcule o <em>ticket médio</em> por mês (média do valor_final)</li>
+            <li><div class="task-check"></div>Em qual mês houve o <em>maior número de pedidos</em>?</li>
+          </ul>
+          <div class="note">
+            💡 <strong>Dica:</strong> pesquise sobre <code>pd.to_datetime()</code> e como acessar partes de uma data com o acessor <code>.dt</code>.
+          </div>
+          <div class="question-block">
+            <p>As vendas cresceram ao longo dos meses? O que os dados sugerem?</p>
+            <input class="answer-line" type="text" placeholder="escreva sua observação aqui...">
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+  </div><!-- /body -->
+
+  <footer>
+    Atividade Prática · Pandas & DataFrame · Ciência de Dados 2026
+  </footer>
+
+</div><!-- /page -->
+</body>
+</html>
