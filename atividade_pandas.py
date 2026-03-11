@@ -1,8 +1,6 @@
 import pandas as pd
 
-# =====================================================
 # 1 - EXPLORAÇÃO INICIAL
-# =====================================================
 
 df = pd.read_json("vendas_ecommerce.json")
 
@@ -25,10 +23,7 @@ coluna_maior_max = maximos.idxmax()
 print("\nColuna com maior valor máximo:", coluna_maior_max)
 print("Média da avaliação:", round(df["avaliacao"].mean(), 2))
 
-
-# =====================================================
 # 2 - NOVA COLUNA CALCULADA
-# =====================================================
 
 df["valor_final"] = (
     df["quantidade"] *
@@ -46,10 +41,7 @@ print("\nPedido com maior desconto percentual:")
 print("Produto:", maior_desconto["produto"])
 print("Valor final:", maior_desconto["valor_final"])
 
-
-# =====================================================
 # 3 - FILTRAGENS
-# =====================================================
 
 print("\n3a - Pedidos devolvidos:")
 print(df[df["devolvido"]][["cliente", "produto", "valor_final"]])
@@ -72,10 +64,7 @@ percentual_devolvidos = df["devolvido"].mean() * 100
 print("\nTotal devolvidos:", total_devolvidos)
 print("Percentual devolvido:", round(percentual_devolvidos, 2), "%")
 
-
-# =====================================================
 # 4 - AGREGAÇÕES
-# =====================================================
 
 print("\n4a - Receita total por categoria:")
 receita_categoria = df.groupby("categoria")["valor_final"].sum().sort_values(ascending=False)
@@ -97,10 +86,7 @@ print(ticket_medio)
 print("\nCategoria que gerou mais receita:", receita_categoria.idxmax())
 print("Categoria que gerou menos receita:", receita_categoria.idxmin())
 
-
-# =====================================================
 # 5 - ANÁLISE TEMPORAL
-# =====================================================
 
 df["data"] = pd.to_datetime(df["data"])
 df["mes"] = df["data"].dt.month
